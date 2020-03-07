@@ -10,7 +10,7 @@ const apiCoronaCall = (country) => {
 
     const fetchURL = `https://corona.lmao.ninja/all`
     if(!country){
-        return fetch(proxyURL + fetchURL).then(res => {return res.json()}).then(parsedJson => {console.log(parsedJson)});
+        return fetch(proxyURL + fetchURL).then(res => {return res.json()}).then(parsedJson => {return parsedJson});
     } 
 }
 

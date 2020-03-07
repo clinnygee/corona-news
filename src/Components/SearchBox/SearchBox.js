@@ -1,11 +1,16 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, createContext} from "react"
 import styled from 'styled-components';
-import StatsDisplay from '../StatsDisplay'
+import StatsDisplay from '../StatsDisplay';
+import {LoadingSymbol} from '../ReusableComponents';
+
+import {apiCoronaCall} from '../../API';
 
 const SearchContainer = styled.div`
     width: 300px;
     height: 300px;
     background-color: #2b2b2c;
+    border-radius: 4px;
+    padding: 16px 0 16px 0;
 `
 
 const SearchBarContainer = styled.div`
@@ -39,19 +44,51 @@ const SearchInput = styled.input`
 
 const SearchBox = (props) => {
 
-    props.getAllStats();
+    const [searchTerm, setSearchTerm] = useState('');
+    
+    const [stats, setStats] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+
+        apiCoronaCall().then(response => {
+            setStats(response);
+            setIsLoading(false);
+            console.log(response)
+        })
+    }, []);
+
+    const onSearchSubmit = () => {
+        props.updateContextSearchTerm(searchTerm);
+    }
+    // props.getAllStats();
+
+    const handleKeyPress = (event) => {
+        console.log(event.key)
+        if(event.key === 'Enter'){
+            onSearchSubmit();
+            setSearchTerm('');
+            
+            
+        }
+    };
+
+    const handleInputChange = (e) => {
+        setSearchTerm(e.target.value);
+    }
 
 
     return (
         <SearchContainer>
             <SearchBarContainer>
-                <SearchForm>
-                    <SearchInput />
+                <SearchForm >
+                    <SearchInput placeholder={'Search'} onChange={handleInputChange} onKeyPress={handleKeyPress} value={searchTerm}/>
                 </SearchForm>
             </SearchBarContainer>
-            <StatsDisplay>
+            {isLoading ? <LoadingSymbol /> : <StatsDisplay stats={stats} searchTerm={props.searchTerm}/>}
+            {/* <StatsDisplay stats={stats}>
 
-            </StatsDisplay>
+            </StatsDisplay> */}
             {/* insert here coronastats */}
         </SearchContainer>
     )

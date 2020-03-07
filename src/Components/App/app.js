@@ -24,7 +24,7 @@ function App() {
           <Consumer>
               {context => (
                 <AppContainer>
-                    <SearchBox getAllStats={context.getAllStats}/>
+                    <SearchBox searchTerm={context.searchTerm} updateContextSearchTerm={context.updateSearchTerm}/>
                 </AppContainer>
               )}
                 

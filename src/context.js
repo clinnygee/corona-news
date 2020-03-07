@@ -2,10 +2,12 @@ import React, {createContext} from 'react';
 import {apiCoronaCall, apiNewsCall} from './API'
 
 const Context = createContext({
+    searchTerm: 'Global',
     articles: null,
     darkMode: false,
     allStats: null,
     getAllStats: () => {},
+    updateSearchTerm: () => {},
 });
 
 export class Provider extends React.Component {
@@ -13,7 +15,11 @@ export class Provider extends React.Component {
     
 
     getAllStats = () => {
-        console.log(apiCoronaCall());
+        apiCoronaCall().then(response => {this.setState({allStats: response})})
+    };
+
+    updateSearchTerm = (searchTerm) => {
+        this.setState({searchTerm: searchTerm})
     }
 
     state = {
@@ -21,6 +27,8 @@ export class Provider extends React.Component {
         darkMode: true,
         allStats: null,
         getAllStats: this.getAllStats,
+        searchTerm: 'Global',
+        updateSearchTerm: this.updateSearchTerm,
     };
 
     render(){
