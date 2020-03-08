@@ -20,6 +20,7 @@ export class Provider extends React.Component {
 
     updateSearchTerm = (searchTerm) => {
         this.setState({searchTerm: searchTerm})
+        console.log(searchTerm)
     }
 
     state = {

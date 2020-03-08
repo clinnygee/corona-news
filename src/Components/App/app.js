@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {Provider, Consumer} from '../../context';
 import SearchBox from '../SearchBox';
+import News from '../News';
 
 const AppContainer = styled.div`
     width: 100vw;
@@ -25,6 +26,7 @@ function App() {
               {context => (
                 <AppContainer>
                     <SearchBox searchTerm={context.searchTerm} updateContextSearchTerm={context.updateSearchTerm}/>
+                    <News searchTerm={context.searchTerm}/>
                 </AppContainer>
               )}
                 

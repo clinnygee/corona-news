@@ -27,7 +27,7 @@ const StatItem = styled.div`
 
 const Title = styled.h1 `
     font-size: 2em;
-    color: #fff;
+    color: rgb(215, 218, 220);
     width: 100%;
     text-align: center;
     text-transform: uppercase;
@@ -36,10 +36,12 @@ const Title = styled.h1 `
 const Header = styled.h1`
     text-align: center;
     text-transform: capitalize;
+    color: rgb(215, 218, 220);
 `
 
 const Paragraph = styled.p`
     text-align: center;
+    color: rgb(129, 131, 132)
 `
 const StatsDisplay = (props) => {
 
