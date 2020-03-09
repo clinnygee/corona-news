@@ -26,7 +26,7 @@ function App() {
               {context => (
                 <AppContainer>
                     <SearchBox searchTerm={context.searchTerm} updateContextSearchTerm={context.updateSearchTerm}/>
-                    <News searchTerm={context.searchTerm}/>
+                    <News searchTerm={context.countryCode}/>
                 </AppContainer>
               )}
                 

@@ -1,6 +1,7 @@
 import React, {useState, useEffect, createContext} from "react"
 import styled from 'styled-components';
 import StatsDisplay from '../StatsDisplay';
+import AutoSuggest from './AutoSuggest'
 import {LoadingSymbol} from '../ReusableComponents';
 
 import {apiCoronaCall} from '../../API';
@@ -15,7 +16,7 @@ const SearchContainer = styled.div`
 
 const SearchBarContainer = styled.div`
     width: 100%;
-    height: 34px;
+    height: 60px;
 `
 
 const SearchForm = styled.div`
@@ -73,8 +74,8 @@ const SearchBox = (props) => {
         }
     };
 
-    const handleInputChange = (e) => {
-        setSearchTerm(e.target.value);
+    const handleInputChange = (value) => {
+        setSearchTerm(value);
     }
 
 
@@ -82,7 +83,8 @@ const SearchBox = (props) => {
         <SearchContainer>
             <SearchBarContainer>
                 <SearchForm >
-                    <SearchInput placeholder={'Search'} onChange={handleInputChange} onKeyPress={handleKeyPress} value={searchTerm}/>
+                    {/* <SearchInput placeholder={'Search'} onChange={handleInputChange} onKeyPress={handleKeyPress} value={searchTerm}/> */}
+                    <AutoSuggest onChange={handleInputChange} onKeyPress={handleKeyPress} value={searchTerm}/>
                 </SearchForm>
             </SearchBarContainer>
             {isLoading ? <LoadingSymbol /> : <StatsDisplay stats={stats} searchTerm={props.searchTerm}/>}
