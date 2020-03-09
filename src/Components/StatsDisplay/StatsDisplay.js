@@ -45,10 +45,15 @@ const Paragraph = styled.p`
 `
 const StatsDisplay = (props) => {
 
+    console.log(props.stats)
+
     let stats = Object.keys(props.stats);
+
+    console.log(stats);
 
     let StatsItemArray = stats.map(key => {
         let content = props.stats[key];
+        console.log(content)
         return (<StatsItem title={key} content={content} key={key}/>)
     })
 

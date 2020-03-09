@@ -1,3 +1,3 @@
-import {textShortener, countries, findObjectWithValue} from './helpers';
+import {textShortener, countries, findObjectWithValue, filterCases} from './helpers';
 
-export {textShortener, countries, findObjectWithValue};
+export {textShortener, countries, findObjectWithValue, filterCases};

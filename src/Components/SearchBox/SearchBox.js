@@ -46,20 +46,23 @@ const SearchInput = styled.input`
 const SearchBox = (props) => {
 
     const [searchTerm, setSearchTerm] = useState('');
+    const [update, setUpdate] = useState(false);
     
     const [stats, setStats] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
 
-        apiCoronaCall().then(response => {
+        apiCoronaCall(searchTerm).then(response => {
             setStats(response);
             setIsLoading(false);
             console.log(response)
-        })
-    }, []);
+        });
+        setSearchTerm('');
+    }, [update]);
 
     const onSearchSubmit = () => {
+        setUpdate(!update);
         props.updateContextSearchTerm(searchTerm);
     }
     // props.getAllStats();
@@ -68,7 +71,7 @@ const SearchBox = (props) => {
         console.log(event.key)
         if(event.key === 'Enter'){
             onSearchSubmit();
-            setSearchTerm('');
+            // setSearchTerm('');
             
             
         }
@@ -87,7 +90,7 @@ const SearchBox = (props) => {
                     <AutoSuggest onChange={handleInputChange} onKeyPress={handleKeyPress} value={searchTerm}/>
                 </SearchForm>
             </SearchBarContainer>
-            {isLoading ? <LoadingSymbol /> : <StatsDisplay stats={stats} searchTerm={props.searchTerm}/>}
+            {isLoading || stats === null ? <LoadingSymbol /> : <StatsDisplay stats={stats} searchTerm={props.searchTerm}/>}
             {/* <StatsDisplay stats={stats}>
 
             </StatsDisplay> */}

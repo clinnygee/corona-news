@@ -28,8 +28,13 @@ export class Provider extends React.Component {
 
     updateCountryCode = (searchTerm) => {
         let countryObject = countries.find(({country}) => country === searchTerm);
-        this.setState({countryCode: countryObject.code});
-        // console.log(countryObject);
+        console.log(countryObject);
+        if(countryObject){
+        this.setState({countryCode: countryObject?.code?  countryObject.code : 'all'});
+        console.log(countryObject);
+        } else {
+            this.setState({countryCode: 'all'})
+        }
     }
 
     state = {

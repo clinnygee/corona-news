@@ -81,25 +81,23 @@ const findObjectWithValue = (obj, value) => {
 };
 
 const filterCases = (cases, search) => {
-    if(search === 'Global'){
-    let holder = {cases: 0, todayCases: 0, deaths: 0, todayDeaths: 0, recovered: 0, critical: 0};
 
-    cases.forEach(caseObj => {
-        holder.cases += caseObj.cases;
-        holder.todayCases += caseObj.todayCases;
-        holder.deaths += caseObj.deaths;
-        holder.todayDeaths += caseObj.todayDeaths;
-        holder.recovered += caseObj.recovered;
-        holder.critical += caseObj.critical
-    });
-        return holder;
-    } else {
+    // search through the full array of objects return from the api. Find the object that 
+    // corresponds to the search term.
         let holder = cases.filter(obj => {
             return obj.country === search;
         });
-        return holder;
-    }
 
-}
+        console.log(holder)
+        // remove the country key value pair from the return object
+        if(holder.length >= 1){
+            delete holder[0]['country'];
+            return holder[0];
+        }
+        
+        return null;
+    
 
-export {textShortener, countries, findObjectWithValue}
+};
+
+export {textShortener, countries, findObjectWithValue, filterCases}

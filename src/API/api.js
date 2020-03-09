@@ -1,3 +1,4 @@
+import {filterCases} from '../Helpers';
 const proxyURL = 'https://cors-anywhere.herokuapp.com/';
 
 const apiNewsCall = (country) => {
@@ -15,10 +16,14 @@ const apiNewsCall = (country) => {
 
 const apiCoronaCall = (country) => {
 
-    const fetchURL = `https://corona.lmao.ninja/all`
+    let fetchURL = '';
     if(!country){
+        fetchURL = `https://corona.lmao.ninja/all`
         return fetch(proxyURL + fetchURL).then(res => {return res.json()}).then(parsedJson => {return parsedJson});
-    } 
+    } else {
+        fetchURL = `https://corona.lmao.ninja/countries`;
+        return fetch(proxyURL + fetchURL).then(res => {return res.json()}).then(parsedJson => {return parsedJson}).then(result => {return filterCases(result, country)});
+    }
 }
 
 export {apiNewsCall, apiCoronaCall};
