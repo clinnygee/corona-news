@@ -22,6 +22,8 @@ const News = (props) => {
 
     console.log(props.searchTerm);
 
+    console.log(newsResults)
+
     const Articles = newsResults.map(article => {
         return <NewsArticle 
             author={article.author} 

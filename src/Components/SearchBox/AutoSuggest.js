@@ -5,9 +5,9 @@ import inputTheme from './input.css';
 import {countries} from '../../Helpers'
 
 const Suggestion = styled.div`
-    background-color: rgb(26, 26, 27);
-    border: 1px solid rgb(215,218,221);
-    color: rgb(215,218,221);
+    background-color: ${props => props.theme.colors.background};
+    border: 1px solid ${props => props.theme.colors.border};
+    color: ${props => props.theme.colors.text_secondary};
     width: 95%;
     border-radius: 4px;
     padding: 4px 4px 4px 4px;

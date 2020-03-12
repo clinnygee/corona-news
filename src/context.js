@@ -4,12 +4,14 @@ import {countries, findObjectWithValue} from './Helpers';
 
 const Context = createContext({
     searchTerm: 'Global',
-    countryCode: 'all',
+    countryCode: '',
+    darkMode: true,
     articles: null,
-    darkMode: false,
+    darkMode: true,
     allStats: null,
     getAllStats: () => {},
     updateSearchTerm: () => {},
+    toggleDarkMode: () => {},
 });
 
 export class Provider extends React.Component {
@@ -35,6 +37,10 @@ export class Provider extends React.Component {
         } else {
             this.setState({countryCode: 'all'})
         }
+    };
+
+    toggleDarkMode = () => {
+        this.setState({darkMode: !this.state.darkMode});
     }
 
     state = {
@@ -43,8 +49,10 @@ export class Provider extends React.Component {
         allStats: null,
         getAllStats: this.getAllStats,
         searchTerm: 'Global',
-        countryCode: 'all',
+        countryCode: '',
         updateSearchTerm: this.updateSearchTerm,
+        darkMode: true,
+        toggleDarkMode: this.toggleDarkMode,
     };
 
     render(){

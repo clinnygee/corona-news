@@ -6,7 +6,7 @@ import {textShortener} from '../../Helpers';
 const Container = styled.div`
     height: 250px;
     width: 100%;
-    background-color: rgba(26, 26, 27, 0.8);
+    background-color: ${props => props.theme.colors.article_background};
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -22,7 +22,7 @@ const LeftContainer = styled.div`
 const RightContainer = styled.div`
     height: 100%;
     width: calc(100% - 25px);
-    background-color: #2b2b2c;
+    background-color: ${props => props.theme.colors.primary};
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -39,19 +39,19 @@ const ImageContainer = styled.div`
 `
 
 const Author = styled.h3`
-    color: rgb(129,131,132);
+    color: ${props => props.theme.colors.text_ternary};
     font-size: 12px;
     padding: 4px 4px 4px 4px;
 `
 
 const Title = styled.h1`
-    color: rgb(215,218,220);
+    color: ${props => props.theme.colors.text_secondary};
     font-size: 18px;
     padding: 4px 4px 4px 4px;
 `
 
 const Description = styled.p`
-    color: rgb(129,131,132);
+    color: ${props => props.theme.colors.text_ternary};
     font-size: 14px;
     padding: 4px 4px 4px 4px;
 `
@@ -69,6 +69,8 @@ const Image = styled.img`
 
 const NewsArticle = (props) => {
 
+    console.log(props)
+
     return (
         <Container>
             <LeftContainer>
@@ -83,7 +85,7 @@ const NewsArticle = (props) => {
                         {props.title.length > 80 ? textShortener(props.title, 80) : props.title}
                     </Title>
                     <Description>
-                        {props.description.length > 50 ? textShortener(props.description, 80) : props.description}
+                        {props.description !== null && props.description.length > 50 ? textShortener(props.description, 80) : props.description}
                     </Description>
                     <LinkToArticle href={props.url}>
                         {textShortener(props.url, 30)}

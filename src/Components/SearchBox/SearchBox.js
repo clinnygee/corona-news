@@ -3,15 +3,17 @@ import styled from 'styled-components';
 import StatsDisplay from '../StatsDisplay';
 import AutoSuggest from './AutoSuggest'
 import {LoadingSymbol} from '../ReusableComponents';
+import Toggle from '../Toggle';
 
 import {apiCoronaCall} from '../../API';
 
 const SearchContainer = styled.div`
     width: 300px;
-    height: 300px;
-    background-color: #2b2b2c;
+    height: 400px;
+    background-color: ${props => props.theme.colors.primary};
     border-radius: 4px;
     padding: 16px 0 16px 0;
+    border: 1px solid ${props => props.theme.colors.border_dark}
 `
 
 const SearchBarContainer = styled.div`
@@ -30,15 +32,15 @@ const SearchForm = styled.div`
 const SearchInput = styled.input`
     width: 80%;
     height: 80%;
-    background-color: #474748;
+    background-color: ${props => props.theme.colors.secondary};
     border-radius: 4px;
     padding: 0 16px 0 16px;
-    border: 1px solid rgb(52, 53, 54);
-    color: rgb(215, 218, 220);
+    border: 1px solid ${props => props.theme.colors.border_dark};
+    color: ${props => props.theme.colors.color};
 
     &:focus {
-        background-color: rgb(26, 26, 27);
-        border: 1px solid rgb(215, 218, 220) !important;
+        background-color: ${props => props.theme.colors.primary};
+        border: 1px solid ${props => props.theme.colors.border} !important;
         outline: none;
     }
 `
@@ -95,8 +97,15 @@ const SearchBox = (props) => {
 
             </StatsDisplay> */}
             {/* insert here coronastats */}
+            {/* <ToggleContainer>
+                <Toggle isDark={props.isDark} toggleIsDark={props.toggleIsDark}/>
+            </ToggleContainer> */}
+            <Toggle isDark={props.isDark} toggleIsDark={props.toggleIsDark} />
+            
         </SearchContainer>
     )
-}
+};
+
+
 
 export default SearchBox;

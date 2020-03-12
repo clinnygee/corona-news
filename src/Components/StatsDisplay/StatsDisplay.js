@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StatsContainer = styled.div`
     width: 100%;
-    height: calc(100% - 34px);
+    height: calc(100% - 84px);
     display: flex;
     flex-wrap: wrap;
     padding: 16px 16px 16px 16px;
@@ -19,15 +19,15 @@ const StatItem = styled.div`
     flex-direction: column;
     justify-content: center;
     line-height: 1.5em;
-    border: 1px solid rgb(215, 218, 220);
-    background-color: #1a1a1b;
-    color: #fff;
+    border: 1px solid ${props => props.theme.colors.border};
+    background-color: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.text_primary};
     border-radius: 4px;
 `
 
 const Title = styled.h1 `
     font-size: 2em;
-    color: rgb(215, 218, 220);
+    color: ${props => props.theme.colors.text_secondary};
     width: 100%;
     text-align: center;
     text-transform: uppercase;
@@ -36,13 +36,15 @@ const Title = styled.h1 `
 const Header = styled.h1`
     text-align: center;
     text-transform: capitalize;
-    color: rgb(215, 218, 220);
+    color: ${props => props.theme.colors.text_secondary};
 `
 
 const Paragraph = styled.p`
     text-align: center;
-    color: rgb(129, 131, 132)
+    color: ${props => props.theme.colors.text_ternary},
 `
+
+
 const StatsDisplay = (props) => {
 
     console.log(props.stats)
