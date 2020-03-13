@@ -14,6 +14,12 @@ const apiNewsCall = (country) => {
     return fetch(proxyURL + fetchURL);
 };
 
+const apiUpliftingNewsCall = () => {
+    let fetchUrl = 'reddit.com/r/upliftingnews.json';
+
+    return fetch(proxyURL + fetchUrl);
+}
+
 const apiCoronaCall = (country) => {
 
     let fetchURL = '';
@@ -24,6 +30,6 @@ const apiCoronaCall = (country) => {
         fetchURL = `https://corona.lmao.ninja/countries`;
         return fetch(proxyURL + fetchURL).then(res => {return res.json()}).then(parsedJson => {return parsedJson}).then(result => {return filterCases(result, country)});
     }
-}
+};
 
-export {apiNewsCall, apiCoronaCall};
+export {apiNewsCall, apiCoronaCall, apiUpliftingNewsCall};

@@ -4,7 +4,7 @@ import {ThemeProvider} from 'styled-components';
 import {Provider, Consumer} from '../../context';
 import SearchBox from '../SearchBox';
 import News from '../News';
-
+import UpliftingNews from '../News/UpliftingNews';
 import lightTheme from '../../themes/light';
 import darkTheme from '../../themes/dark';
 
@@ -37,7 +37,8 @@ function App() {
                             isDark={context.darkMode} 
                             toggleIsDark={context.toggleDarkMode}
                         />
-                        <News searchTerm={context.countryCode}/>
+                        {context.darkMode ? <News searchTerm={context.countryCode} /> : <UpliftingNews />}
+                        {/* <News searchTerm={context.countryCode}/> */}
                     </AppContainer>
                   </ThemeProvider>
                 

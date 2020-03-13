@@ -33,7 +33,9 @@ const News = (props) => {
             imageUrl={article.urlToImage} 
             key={article.title}
         />
-    })
+    });
+
+    console.log(Articles);
 
 
     return (

@@ -1,3 +1,3 @@
-import {apiNewsCall, apiCoronaCall} from './api';
+import {apiNewsCall, apiCoronaCall, apiUpliftingNewsCall} from './api';
 
-export {apiNewsCall, apiCoronaCall};
+export {apiNewsCall, apiCoronaCall, apiUpliftingNewsCall};
