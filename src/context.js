@@ -2,7 +2,7 @@ import React, {createContext} from 'react';
 import {apiCoronaCall, apiNewsCall} from './API';
 import {countries, findObjectWithValue} from './Helpers';
 
-const Context = createContext({
+export const Context = createContext({
     searchTerm: 'Global',
     countryCode: '',
     darkMode: true,

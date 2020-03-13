@@ -69,7 +69,7 @@ const Image = styled.img`
 
 const NewsArticle = (props) => {
 
-    console.log(props)
+    // console.log(props)
 
     return (
         <Container>
