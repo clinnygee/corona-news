@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Autosuggest from 'react-autosuggest';
 import styled from 'styled-components'
 import inputTheme from './input.css';

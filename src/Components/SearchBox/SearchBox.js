@@ -1,4 +1,4 @@
-import React, {useState, useEffect, createContext} from "react"
+import React, {useState, useEffect} from "react"
 import styled from 'styled-components';
 import StatsDisplay from '../StatsDisplay';
 import AutoSuggest from './AutoSuggest'
@@ -9,7 +9,7 @@ import {apiCoronaCall} from '../../API';
 
 const SearchContainer = styled.div`
     width: 300px;
-    height: 400px;
+    min-height: 400px;
     background-color: ${props => props.theme.colors.primary};
     border-radius: 4px;
     padding: 16px 0 16px 0;
@@ -29,21 +29,21 @@ const SearchForm = styled.div`
     justify-content: center;
 `
 
-const SearchInput = styled.input`
-    width: 80%;
-    height: 80%;
-    background-color: ${props => props.theme.colors.secondary};
-    border-radius: 4px;
-    padding: 0 16px 0 16px;
-    border: 1px solid ${props => props.theme.colors.border_dark};
-    color: ${props => props.theme.colors.color};
+// const SearchInput = styled.input`
+//     width: 80%;
+//     height: 80%;
+//     background-color: ${props => props.theme.colors.secondary};
+//     border-radius: 4px;
+//     padding: 0 16px 0 16px;
+//     border: 1px solid ${props => props.theme.colors.border_dark};
+//     color: ${props => props.theme.colors.color};
 
-    &:focus {
-        background-color: ${props => props.theme.colors.primary};
-        border: 1px solid ${props => props.theme.colors.border} !important;
-        outline: none;
-    }
-`
+//     &:focus {
+//         background-color: ${props => props.theme.colors.primary};
+//         border: 1px solid ${props => props.theme.colors.border} !important;
+//         outline: none;
+//     }
+// `
 
 const SearchBox = (props) => {
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 import {textShortener} from '../../Helpers';
@@ -71,6 +71,27 @@ const NewsArticle = (props) => {
 
     // console.log(props)
 
+    const imageRef = createRef();
+
+    // console.log(imageRef.current);
+
+    const titleRef = createRef();
+
+    const setSpans = () => {
+        console.log(titleRef);
+    };
+
+    useEffect(() => {
+        // titleRef.current.addEventListener('load', setSpans);
+        console.log(titleRef);
+        console.log(imageRef.current.height);
+    })
+
+    // titleRef.current.addEventListener('load', setSpans);
+
+    
+    // console.log(titleRef)
+
     return (
         <Container>
             <LeftContainer>
@@ -81,7 +102,7 @@ const NewsArticle = (props) => {
                     <Author>
                         Author: {props.author}
                     </Author>
-                    <Title>
+                    <Title ref={titleRef}>
                         {props.title.length > 80 ? textShortener(props.title, 80) : props.title}
                     </Title>
                     <Description>
@@ -92,7 +113,7 @@ const NewsArticle = (props) => {
                     </LinkToArticle>
                 </TextContainer>
                 <ImageContainer>
-                    <Image src={props.imageUrl} alt={`image for ${props.title}`}/>
+                    <Image  ref={imageRef} src={props.imageUrl} alt={`image for ${props.title}`}/>
                 </ImageContainer>
             </RightContainer>
         </Container>

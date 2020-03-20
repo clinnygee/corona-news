@@ -1,13 +1,12 @@
 import React, {createContext} from 'react';
-import {apiCoronaCall, apiNewsCall} from './API';
-import {countries, findObjectWithValue} from './Helpers';
+import {apiCoronaCall} from './API';
+import {countries} from './Helpers';
 
 export const Context = createContext({
     searchTerm: 'Global',
     countryCode: '',
     darkMode: true,
     articles: null,
-    darkMode: true,
     allStats: null,
     getAllStats: () => {},
     updateSearchTerm: () => {},
@@ -51,7 +50,6 @@ export class Provider extends React.Component {
         searchTerm: 'Global',
         countryCode: '',
         updateSearchTerm: this.updateSearchTerm,
-        darkMode: true,
         toggleDarkMode: this.toggleDarkMode,
     };
 

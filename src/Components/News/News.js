@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import {apiNewsCall} from '../../API';
 import NewsArticle from './NewsArticle';
-import {Context} from '../../context';
+
 
 const Container = styled.div`
     width: 300px;
@@ -14,11 +14,7 @@ const Container = styled.div`
 const News = (props) => {
 
     const [newsResults, setNewsResults] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-    const context = useContext(Context);
-
-    console.log(context)
+    
 
     useEffect(() => {
 
@@ -40,14 +36,11 @@ const News = (props) => {
         />
     });
 
-    console.log(Articles);
+    
 
 
     return (
         <Container>
-            {/* <NewsArticle>
-
-            </NewsArticle> */}
             {Articles}
         </Container>
     )

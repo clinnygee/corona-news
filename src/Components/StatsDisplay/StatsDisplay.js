@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {toHumanReadableDT} from '../../Helpers';
 
 const StatsContainer = styled.div`
     width: 100%;
@@ -12,7 +13,7 @@ const StatsContainer = styled.div`
     
     `
 const StatItem = styled.div`
-    width: 30%;
+    min-width: 30%;
     height: 40%;
     background-color: white;
     display: flex;
@@ -23,6 +24,7 @@ const StatItem = styled.div`
     background-color: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text_primary};
     border-radius: 4px;
+    margin: 2px 2px 2px 2px;
 `
 
 const Title = styled.h1 `
@@ -54,7 +56,8 @@ const StatsDisplay = (props) => {
     console.log(stats);
 
     let StatsItemArray = stats.map(key => {
-        let content = props.stats[key];
+        let content = (props.stats[key] >= 1584683350300 ? toHumanReadableDT(props.stats[key]) : props.stats[key]);
+        // content >= 1584683350300 ? content = toHumanReadableDT(content) :
         console.log(content)
         return (<StatsItem title={key} content={content} key={key}/>)
     })
