@@ -111,6 +111,8 @@ const toHumanReadableDT = (s) => {
 //   return hrs + ':' + mins + ':' + secs + '.' + ms;
     let date = new Date(s);
 
+    console.log(date)
+
     return date.toString();
 }
 
