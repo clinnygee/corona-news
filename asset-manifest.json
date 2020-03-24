@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/corona-news/static/css/main.82b8fbde.chunk.css",
-    "main.js": "/corona-news/static/js/main.08d74960.chunk.js",
-    "main.js.map": "/corona-news/static/js/main.08d74960.chunk.js.map",
+    "main.js": "/corona-news/static/js/main.44e2bb65.chunk.js",
+    "main.js.map": "/corona-news/static/js/main.44e2bb65.chunk.js.map",
     "runtime-main.js": "/corona-news/static/js/runtime-main.12faecca.js",
     "runtime-main.js.map": "/corona-news/static/js/runtime-main.12faecca.js.map",
     "static/js/2.c282238f.chunk.js": "/corona-news/static/js/2.c282238f.chunk.js",
     "static/js/2.c282238f.chunk.js.map": "/corona-news/static/js/2.c282238f.chunk.js.map",
     "index.html": "/corona-news/index.html",
-    "precache-manifest.1290b16276c191d10cc78d5e4c4a0b23.js": "/corona-news/precache-manifest.1290b16276c191d10cc78d5e4c4a0b23.js",
+    "precache-manifest.e81cfd4406c084972c2ebcaee3fdfb13.js": "/corona-news/precache-manifest.e81cfd4406c084972c2ebcaee3fdfb13.js",
     "service-worker.js": "/corona-news/service-worker.js",
     "static/css/main.82b8fbde.chunk.css.map": "/corona-news/static/css/main.82b8fbde.chunk.css.map",
     "static/js/2.c282238f.chunk.js.LICENSE.txt": "/corona-news/static/js/2.c282238f.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.12faecca.js",
     "static/js/2.c282238f.chunk.js",
     "static/css/main.82b8fbde.chunk.css",
-    "static/js/main.08d74960.chunk.js"
+    "static/js/main.44e2bb65.chunk.js"
   ]
 }
