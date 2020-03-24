@@ -59,7 +59,12 @@ const StatsDisplay = (props) => {
         let content = (props.stats[key] >= 1584683350300 ? toHumanReadableDT(props.stats[key]) : props.stats[key]);
         // content >= 1584683350300 ? content = toHumanReadableDT(content) :
         console.log(content)
-        return (<StatsItem title={key} content={content} key={key}/>)
+        if(typeof content !== 'object'){
+            return (<StatsItem title={key} content={content} key={key}/>)
+        } else {
+            return null;
+        }
+        
     })
 
     console.log(stats);
